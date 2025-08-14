@@ -16,12 +16,16 @@ const burgerConstructorSlice = createSlice({
   name: 'burgerConstructor',
   initialState,
   reducers: {
-    addIngredient: (state, action: PayloadAction<TIngredient>) => {
-      const newIngredient = {
-        ...action.payload,
-        id: nanoid()
-      };
-      state.ingredients.push(newIngredient);
+    addIngredient: {
+      reducer: (state, action: PayloadAction<TConstructorIngredient>) => {
+        state.ingredients.push(action.payload);
+      },
+      prepare: (ingridient: TIngredient) => ({
+        payload: {
+          ...ingridient,
+          id: nanoid()
+        }
+      })
     },
     setBun: (state, action: PayloadAction<TIngredient>) => {
       state.bun = action.payload;
