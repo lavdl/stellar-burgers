@@ -15,7 +15,7 @@ import styles from './app.module.css';
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from '../../services/store';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { fetchIngredients } from '../../slices/appSlice';
 import { getUserInfo, refreshTokenUser } from '../../slices/user/userActions';
 import { OnlyAuth, OnlyUnAuth } from '../protected-route';
@@ -26,7 +26,10 @@ const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isModal = location.state as { background?: Location };
+  const dataFetch = useRef(false);
   useEffect(() => {
+    if (dataFetch.current) return;
+    dataFetch.current = true;
     const fetchUserInfo = async () => {
       const result = await dispatch(getUserInfo());
       if (getUserInfo.rejected.match(result)) {
