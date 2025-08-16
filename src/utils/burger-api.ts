@@ -34,7 +34,6 @@ export const refreshToken = (): Promise<TRefreshResponse> =>
       setCookie('accessToken', refreshData.accessToken);
       return refreshData;
     });
-
 export const fetchWithRefresh = async <T>(
   url: RequestInfo,
   options: RequestInit
