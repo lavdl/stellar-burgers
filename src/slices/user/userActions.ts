@@ -8,7 +8,7 @@ import {
   TRegisterData,
   updateUserApi,
   refreshToken
-} from '@api';
+} from '../../utils/burger-api';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 import { deleteCookie, setCookie } from '../../utils/cookie';

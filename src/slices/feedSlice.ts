@@ -1,4 +1,4 @@
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../utils/burger-api';
 import {
   createAsyncThunk,
   createSlice,
@@ -12,7 +12,7 @@ interface IFeedSlice {
   data: TOrdersData;
 }
 
-const initialState: IFeedSlice = {
+export const initialState: IFeedSlice = {
   loading: true,
   error: null,
   data: {

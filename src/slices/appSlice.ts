@@ -1,4 +1,4 @@
-import { getIngredientsApi } from '@api';
+import { getIngredientsApi } from '../utils/burger-api';
 import {
   createAsyncThunk,
   createSlice,
@@ -13,7 +13,7 @@ interface AppState {
   data: TIngredient[];
 }
 
-const initialState: AppState = {
+export const initialState: AppState = {
   loading: false,
   error: null,
   data: []

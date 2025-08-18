@@ -20,7 +20,7 @@ interface IUserSlice {
   isAuthorized: boolean;
 }
 
-const initialState: IUserSlice = {
+export const initialState: IUserSlice = {
   loading: false,
   user: {
     name: '',
@@ -61,6 +61,11 @@ const userSlice = createSlice({
         state.isAuthorized = true;
         state.loading = false;
       })
+      .addCase(login.rejected, (state, action) => {
+        state.isAuthChecked = true;
+        state.loading = false;
+        state.isAuthorized = false;
+      })
       .addCase(register.pending, (state) => {
         state.loading = true;
       })
@@ -92,7 +97,8 @@ const userSlice = createSlice({
         state.isAuthChecked = true;
       })
       .addCase(refreshTokenUser.pending, (state) => {
-        state.isAuthChecked = true;
+        state.isAuthChecked = false;
+        state.loading = true;
       });
   }
 });
