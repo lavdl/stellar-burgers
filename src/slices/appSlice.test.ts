@@ -1,14 +1,8 @@
 import { expect, test, describe } from '@jest/globals';
-import { appReducer, fetchIngredients } from './appSlice';
+import { appReducer, fetchIngredients, initialState } from './appSlice';
 import { ingredients } from '../slices/ingredients.json';
 
 describe('Проверка слайса appSlice', () => {
-  const initialState = {
-    loading: false,
-    error: null,
-    data: []
-  };
-
   test('Проверка редьюсера', () => {
     expect(appReducer(undefined, { type: '' })).toEqual(initialState);
   });

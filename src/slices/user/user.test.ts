@@ -1,5 +1,5 @@
 import { expect, test, describe } from '@jest/globals';
-import { clearUser, setUser, userReducer } from './userSlice';
+import { clearUser, setUser, userReducer, initialState } from './userSlice';
 import {
   getUserInfo,
   login,
@@ -9,16 +9,6 @@ import {
 } from './userActions';
 
 describe('Проверка слайса user', () => {
-  const initialState = {
-    loading: false,
-    user: {
-      name: '',
-      email: ''
-    },
-    isAuthChecked: false,
-    isAuthorized: false
-  };
-
   test('Проверка редьюсера', () => {
     expect(userReducer(undefined, { type: '' })).toEqual(initialState);
   });

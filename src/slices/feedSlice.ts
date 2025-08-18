@@ -12,7 +12,7 @@ interface IFeedSlice {
   data: TOrdersData;
 }
 
-const initialState: IFeedSlice = {
+export const initialState: IFeedSlice = {
   loading: true,
   error: null,
   data: {

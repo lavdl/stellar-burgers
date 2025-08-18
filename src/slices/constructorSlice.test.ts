@@ -6,7 +6,8 @@ import {
   constructorReducer,
   moveIngredient,
   removeIngredient,
-  setBun
+  setBun,
+  initialState
 } from './constructorSlice';
 
 jest.mock('nanoid', () => ({
@@ -14,11 +15,6 @@ jest.mock('nanoid', () => ({
 }));
 
 describe('Проверка слайса constructorSlice', () => {
-  const initialState = {
-    bun: null,
-    ingredients: []
-  };
-
   test('Проверка редьюсера', () => {
     expect(constructorReducer(undefined, { type: '' })).toEqual(initialState);
   });

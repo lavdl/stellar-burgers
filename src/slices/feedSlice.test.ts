@@ -1,17 +1,7 @@
 import { expect, test, describe } from '@jest/globals';
-import { feedReducer, fetchFeed } from './feedSlice';
+import { feedReducer, fetchFeed, initialState } from './feedSlice';
 
 describe('Проверка слайса feedSlice', () => {
-  const initialState = {
-    loading: true,
-    error: null,
-    data: {
-      orders: [],
-      total: 0,
-      totalToday: 0
-    }
-  };
-
   test('Проверка редьюсера', () => {
     expect(feedReducer(undefined, { type: '' })).toEqual(initialState);
   });

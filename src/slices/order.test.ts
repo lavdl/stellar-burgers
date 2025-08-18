@@ -4,19 +4,11 @@ import {
   fetchGetOrderByNumber,
   fetchGetOrders,
   orderReducer,
-  resetOrder
+  resetOrder,
+  initialState
 } from './order';
 
 describe('Проверка слайса orderSlice', () => {
-  const initialState = {
-    loading: true,
-    error: null,
-    data: [],
-    orderModalData: null,
-    orderRequest: false,
-    loadingOrder: false
-  };
-
   test('Проверка редьюсера', () => {
     expect(orderReducer(undefined, { type: '' })).toEqual(initialState);
   });

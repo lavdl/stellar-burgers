@@ -20,7 +20,7 @@ interface IUserSlice {
   isAuthorized: boolean;
 }
 
-const initialState: IUserSlice = {
+export const initialState: IUserSlice = {
   loading: false,
   user: {
     name: '',

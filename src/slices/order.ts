@@ -19,7 +19,7 @@ interface IOrderSlice {
   orderRequest: boolean;
 }
 
-const initialState: IOrderSlice = {
+export const initialState: IOrderSlice = {
   loading: true,
   error: null,
   data: [],

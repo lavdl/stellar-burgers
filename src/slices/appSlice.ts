@@ -13,7 +13,7 @@ interface AppState {
   data: TIngredient[];
 }
 
-const initialState: AppState = {
+export const initialState: AppState = {
   loading: false,
   error: null,
   data: []
